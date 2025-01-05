@@ -1,3 +1,5 @@
+[![GitHub stars](https://img.shields.io/github/stars/tu-usuario/PomodoroApp?style=social)](https://github.com/tu-usuario/PomodoroApp/stargazers)
+
 # PomodoroApp
 
 Proyecto colaborativo para desarrollar una aplicación de Pomodoro con métricas y estadísticas. Este proyecto es parte de la iniciativa de MoureDev para practicar y mejorar nuestras habilidades en Swift y trabajo colaborativo.
