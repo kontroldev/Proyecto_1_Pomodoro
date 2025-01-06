@@ -6,20 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		6E6EDCAC2D2BE7A300EC663A /* Proyecto_1_PomodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6EDCAA2D2BE7A300EC663A /* Proyecto_1_PomodoroApp.swift */; };
-		6E6EDCAD2D2BE7A300EC663A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6EDCA92D2BE7A300EC663A /* ContentView.swift */; };
-		6E6EDCAE2D2BE7A300EC663A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6EDCA62D2BE7A300EC663A /* Preview Assets.xcassets */; };
-		6E6EDCAF2D2BE7A300EC663A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6EDCA82D2BE7A300EC663A /* Assets.xcassets */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		6E6EDCA62D2BE7A300EC663A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6E6EDCA82D2BE7A300EC663A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6E6EDCA92D2BE7A300EC663A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6E6EDCAA2D2BE7A300EC663A /* Proyecto_1_PomodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_1_PomodoroApp.swift; sourceTree = "<group>"; };
 		B3213EC52D2A9CCE00D33653 /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Proyecto_1_Pomodoro;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B3213EC22D2A9CCE00D33653 /* Frameworks */ = {
@@ -32,29 +29,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E6EDCA72D2BE7A300EC663A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6E6EDCA62D2BE7A300EC663A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6E6EDCAB2D2BE7A300EC663A /* Proyecto_1_Pomodoro */ = {
-			isa = PBXGroup;
-			children = (
-				6E6EDCA72D2BE7A300EC663A /* Preview Content */,
-				6E6EDCA82D2BE7A300EC663A /* Assets.xcassets */,
-				6E6EDCA92D2BE7A300EC663A /* ContentView.swift */,
-				6E6EDCAA2D2BE7A300EC663A /* Proyecto_1_PomodoroApp.swift */,
-			);
-			path = Proyecto_1_Pomodoro;
-			sourceTree = "<group>";
-		};
 		B3213EBC2D2A9CCE00D33653 = {
 			isa = PBXGroup;
 			children = (
-				6E6EDCAB2D2BE7A300EC663A /* Proyecto_1_Pomodoro */,
+				B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */,
 				B3213EC62D2A9CCE00D33653 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +59,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */,
 			);
 			name = Proyecto_1_Pomodoro;
 			packageProductDependencies = (
@@ -128,8 +109,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E6EDCAE2D2BE7A300EC663A /* Preview Assets.xcassets in Resources */,
-				6E6EDCAF2D2BE7A300EC663A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E6EDCAC2D2BE7A300EC663A /* Proyecto_1_PomodoroApp.swift in Sources */,
-				6E6EDCAD2D2BE7A300EC663A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
