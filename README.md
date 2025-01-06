@@ -1,4 +1,4 @@
-[![GitHub stars](https://img.shields.io/github/stars/tu-usuario/PomodoroApp?style=social)](https://github.com/tu-usuario/PomodoroApp/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/kontroldev/Proyecto_1_Pomodoro?style=social)](https://github.com/kontroldev/Proyecto_1_Pomodoro/stargazers)
 
 # PomodoroApp
 
@@ -38,7 +38,7 @@ Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
 ## 👥 Equipo
 - **Gestor de Swift**: Raúl  
-- **Colaboradores**: Lordzzz, Yeikobu, Rusalca, Matías Álvarez, Alejosor, Larafuzas.
+- **Colaboradores**: Lordzzz, Yeikobu, Rusalca, Alejosor, Larafuzas, ManuelCBR.
 
 ## 🎯 Próximos Pasos
 1. Completar el diseño en Figma.
