@@ -62,7 +62,7 @@ Puedes consultar el diseño preliminar del proyecto en Figma:
 ## 🎯 Próximos Pasos
 1. Completar el diseño en Figma.
 2. Dividir el backlog en tareas concretas.
-3. Comenzar con el primer sprint.
+3. Comenzar con el segundo sprint.
 
 ---
 
