@@ -28,4 +28,4 @@ struct CustomTextField: View {
 
 #Preview {
     CustomTextField(titulo: "Texto")
-}
+} 
