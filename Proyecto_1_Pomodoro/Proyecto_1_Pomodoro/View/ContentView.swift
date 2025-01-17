@@ -8,23 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var activeTap: TabItem = .tabHome
     var body: some View {
-        ZStack(alignment: .bottom) {
-                
-                TabView(selection: $activeTap) {
-                    ForEach(TabItem.allCases){ tab in
-                        tab.view
-                            .tabItem({
-                                Label(tab.nameLabel, systemImage: tab.symbolIcon)
-                            })
-                            .tag(tab.id)
-                    }
-                    
-                }
-            InteractiveTabBar(activeTap: $activeTap)
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
         }
-        
+        .padding()
     }
 }
 
