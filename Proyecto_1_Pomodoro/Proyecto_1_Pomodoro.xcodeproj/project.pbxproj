@@ -6,17 +6,48 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B3031BD72D3BC28400E95BF8 /* Modelos.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BBE2D3BC28400E95BF8 /* Modelos.txt */; };
+		B3031BD82D3BC28400E95BF8 /* Lista de participantes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC12D3BC28400E95BF8 /* Lista de participantes.txt */; };
+		B3031BD92D3BC28400E95BF8 /* PreVieW.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC22D3BC28400E95BF8 /* PreVieW.txt */; };
+		B3031BDA2D3BC28400E95BF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC32D3BC28400E95BF8 /* Preview Assets.xcassets */; };
+		B3031BDB2D3BC28400E95BF8 /* Utilidades.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC62D3BC28400E95BF8 /* Utilidades.txt */; };
+		B3031BDD2D3BC28400E95BF8 /* VieWModel.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BD22D3BC28400E95BF8 /* VieWModel.txt */; };
+		B3031BDE2D3BC28400E95BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3031BD42D3BC28400E95BF8 /* Assets.xcassets */; };
+		B3031BDF2D3BC28400E95BF8 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BBF2D3BC28400E95BF8 /* TabItem.swift */; };
+		B3031BE02D3BC28400E95BF8 /* ViewMockHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BC42D3BC28400E95BF8 /* ViewMockHome.swift */; };
+		B3031BE12D3BC28400E95BF8 /* DefaultTimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BC82D3BC28400E95BF8 /* DefaultTimeButtonView.swift */; };
+		B3031BE22D3BC28400E95BF8 /* InteractiveTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BC92D3BC28400E95BF8 /* InteractiveTabBar.swift */; };
+		B3031BE32D3BC28400E95BF8 /* StartSessionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCA2D3BC28400E95BF8 /* StartSessionButtonView.swift */; };
+		B3031BE42D3BC28400E95BF8 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCB2D3BC28400E95BF8 /* TimerView.swift */; };
+		B3031BE52D3BC28400E95BF8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCD2D3BC28400E95BF8 /* ContentView.swift */; };
+		B3031BE62D3BC28400E95BF8 /* DescripcionSesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCE2D3BC28400E95BF8 /* DescripcionSesionView.swift */; };
+		B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCF2D3BC28400E95BF8 /* NombreSesionView.swift */; };
+		B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */; };
+		B3031BEA2D3BC42300E95BF8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BE92D3BC42300E95BF8 /* Main.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		B3031BBE2D3BC28400E95BF8 /* Modelos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modelos.txt; sourceTree = "<group>"; };
+		B3031BBF2D3BC28400E95BF8 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		B3031BC12D3BC28400E95BF8 /* Lista de participantes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Lista de participantes.txt"; sourceTree = "<group>"; };
+		B3031BC22D3BC28400E95BF8 /* PreVieW.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PreVieW.txt; sourceTree = "<group>"; };
+		B3031BC32D3BC28400E95BF8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3031BC42D3BC28400E95BF8 /* ViewMockHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMockHome.swift; sourceTree = "<group>"; };
+		B3031BC62D3BC28400E95BF8 /* Utilidades.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Utilidades.txt; sourceTree = "<group>"; };
+		B3031BC82D3BC28400E95BF8 /* DefaultTimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTimeButtonView.swift; sourceTree = "<group>"; };
+		B3031BC92D3BC28400E95BF8 /* InteractiveTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTabBar.swift; sourceTree = "<group>"; };
+		B3031BCA2D3BC28400E95BF8 /* StartSessionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionButtonView.swift; sourceTree = "<group>"; };
+		B3031BCB2D3BC28400E95BF8 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B3031BCD2D3BC28400E95BF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B3031BCE2D3BC28400E95BF8 /* DescripcionSesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescripcionSesionView.swift; sourceTree = "<group>"; };
+		B3031BCF2D3BC28400E95BF8 /* NombreSesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NombreSesionView.swift; sourceTree = "<group>"; };
+		B3031BD22D3BC28400E95BF8 /* VieWModel.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = VieWModel.txt; sourceTree = "<group>"; };
+		B3031BD42D3BC28400E95BF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_1_PomodoroApp.swift; sourceTree = "<group>"; };
+		B3031BE92D3BC42300E95BF8 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		B3213EC52D2A9CCE00D33653 /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Proyecto_1_Pomodoro;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B3213EC22D2A9CCE00D33653 /* Frameworks */ = {
@@ -29,10 +60,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3031BC02D3BC28400E95BF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BBE2D3BC28400E95BF8 /* Modelos.txt */,
+				B3031BBF2D3BC28400E95BF8 /* TabItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B3031BC52D3BC28400E95BF8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BC12D3BC28400E95BF8 /* Lista de participantes.txt */,
+				B3031BC22D3BC28400E95BF8 /* PreVieW.txt */,
+				B3031BC32D3BC28400E95BF8 /* Preview Assets.xcassets */,
+				B3031BC42D3BC28400E95BF8 /* ViewMockHome.swift */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3031BC72D3BC28400E95BF8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BC62D3BC28400E95BF8 /* Utilidades.txt */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B3031BCC2D3BC28400E95BF8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BC82D3BC28400E95BF8 /* DefaultTimeButtonView.swift */,
+				B3031BC92D3BC28400E95BF8 /* InteractiveTabBar.swift */,
+				B3031BCA2D3BC28400E95BF8 /* StartSessionButtonView.swift */,
+				B3031BCB2D3BC28400E95BF8 /* TimerView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B3031BD12D3BC28400E95BF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BCC2D3BC28400E95BF8 /* Components */,
+				B3031BCD2D3BC28400E95BF8 /* ContentView.swift */,
+				B3031BCE2D3BC28400E95BF8 /* DescripcionSesionView.swift */,
+				B3031BCF2D3BC28400E95BF8 /* NombreSesionView.swift */,
+				B3031BE92D3BC42300E95BF8 /* Main.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3031BD32D3BC28400E95BF8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BD22D3BC28400E95BF8 /* VieWModel.txt */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B3031BD62D3BC28400E95BF8 /* Proyecto_1_Pomodoro */ = {
+			isa = PBXGroup;
+			children = (
+				B3031BC02D3BC28400E95BF8 /* Models */,
+				B3031BD12D3BC28400E95BF8 /* View */,
+				B3031BD32D3BC28400E95BF8 /* ViewModels */,
+				B3031BC52D3BC28400E95BF8 /* Preview Content */,
+				B3031BC72D3BC28400E95BF8 /* Tools */,
+				B3031BD42D3BC28400E95BF8 /* Assets.xcassets */,
+				B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */,
+			);
+			path = Proyecto_1_Pomodoro;
+			sourceTree = "<group>";
+		};
 		B3213EBC2D2A9CCE00D33653 = {
 			isa = PBXGroup;
 			children = (
-				B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */,
+				B3031BD62D3BC28400E95BF8 /* Proyecto_1_Pomodoro */,
 				B3213EC62D2A9CCE00D33653 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,9 +163,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				B3213EC72D2A9CCE00D33653 /* Proyecto_1_Pomodoro */,
 			);
 			name = Proyecto_1_Pomodoro;
 			packageProductDependencies = (
@@ -109,6 +210,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3031BD72D3BC28400E95BF8 /* Modelos.txt in Resources */,
+				B3031BD82D3BC28400E95BF8 /* Lista de participantes.txt in Resources */,
+				B3031BD92D3BC28400E95BF8 /* PreVieW.txt in Resources */,
+				B3031BDA2D3BC28400E95BF8 /* Preview Assets.xcassets in Resources */,
+				B3031BDB2D3BC28400E95BF8 /* Utilidades.txt in Resources */,
+				B3031BDD2D3BC28400E95BF8 /* VieWModel.txt in Resources */,
+				B3031BDE2D3BC28400E95BF8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +227,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3031BDF2D3BC28400E95BF8 /* TabItem.swift in Sources */,
+				B3031BE02D3BC28400E95BF8 /* ViewMockHome.swift in Sources */,
+				B3031BEA2D3BC42300E95BF8 /* Main.swift in Sources */,
+				B3031BE12D3BC28400E95BF8 /* DefaultTimeButtonView.swift in Sources */,
+				B3031BE22D3BC28400E95BF8 /* InteractiveTabBar.swift in Sources */,
+				B3031BE32D3BC28400E95BF8 /* StartSessionButtonView.swift in Sources */,
+				B3031BE42D3BC28400E95BF8 /* TimerView.swift in Sources */,
+				B3031BE52D3BC28400E95BF8 /* ContentView.swift in Sources */,
+				B3031BE62D3BC28400E95BF8 /* DescripcionSesionView.swift in Sources */,
+				B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */,
+				B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
