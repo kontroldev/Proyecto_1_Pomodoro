@@ -35,7 +35,37 @@ struct MainView: View {
                 }
                 .padding(.vertical, 20)
                 
+                
+                // Los tres botones del medio
+                // Para cambiar el destino de los botones: Moldels -> ItemMenu
+                
+                ScrollView{
+                    ForEach(menuItem){buttonItems in
+                        NavigationLink(destination: buttonItems.mainButtonlink){
+                            HStack{
+                                
+                                Text(buttonItems.mainButtonText)
+                                    .font(.system(size: 17).bold())
+                                    .lineLimit(2)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                             
+                                Image(systemName: buttonItems.mainButtonIco)
+                                    .font(.title.bold())
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                            .frame(width: 300, height: 41)
+                            .padding(20)
+                            .background(Color(buttonItems.mainButtonColor))
+                            .cornerRadius(15)
+                            .foregroundColor(Color.white)
+                            .padding(8)
+                        }
+                    }
+                }
+                
                 Spacer()
+                
+      
             }
             .padding()
             .navigationTitle("Pantalla Principal")
