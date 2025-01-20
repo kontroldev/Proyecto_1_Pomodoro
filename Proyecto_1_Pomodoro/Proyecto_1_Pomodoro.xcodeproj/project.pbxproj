@@ -25,6 +25,7 @@
 		B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCF2D3BC28400E95BF8 /* NombreSesionView.swift */; };
 		B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */; };
 		B3031BEA2D3BC42300E95BF8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BE92D3BC42300E95BF8 /* Main.swift */; };
+		C2A07ED12D3E8FEF00B1298F /* ItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A07ED02D3E8FE800B1298F /* ItemMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_1_PomodoroApp.swift; sourceTree = "<group>"; };
 		B3031BE92D3BC42300E95BF8 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		B3213EC52D2A9CCE00D33653 /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A07ED02D3E8FE800B1298F /* ItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		B3031BC02D3BC28400E95BF8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2A07ED02D3E8FE800B1298F /* ItemMenu.swift */,
 				B3031BBE2D3BC28400E95BF8 /* Modelos.txt */,
 				B3031BBF2D3BC28400E95BF8 /* TabItem.swift */,
 			);
@@ -236,6 +239,7 @@
 				B3031BE42D3BC28400E95BF8 /* TimerView.swift in Sources */,
 				B3031BE52D3BC28400E95BF8 /* ContentView.swift in Sources */,
 				B3031BE62D3BC28400E95BF8 /* DescripcionSesionView.swift in Sources */,
+				C2A07ED12D3E8FEF00B1298F /* ItemMenu.swift in Sources */,
 				B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */,
 				B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */,
 			);
