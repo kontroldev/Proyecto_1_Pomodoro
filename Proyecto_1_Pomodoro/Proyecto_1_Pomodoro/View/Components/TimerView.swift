@@ -23,6 +23,7 @@ struct IconButton: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10)) // Forma redondeada
                 .padding(.horizontal, 10)
         }
+        .disabled(isPressed)
     }
 }
 
@@ -33,6 +34,8 @@ struct TimerView: View {
     @State private var playPressed = false // Botón presionado
     @State private var pausePressed = false // Botón presionado
     let totalTime: Int = 60  // Tiempo total del temporizador
+    
+    let vm: TimerViewModel
 
     var body: some View {
         VStack {
@@ -40,12 +43,12 @@ struct TimerView: View {
                 Circle()
                     .stroke(lineWidth: 20)
                 Circle()
-                    .trim(from: 0.0, to: progress)
+                    .trim(from: 0.0, to: vm.progress)
                     .stroke(Color(#colorLiteral(red: 0.6215203404, green: 0.002358516213, blue: 0.002240711823, alpha: 1)), style: StrokeStyle(lineWidth: 20, lineCap: .round))
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut, value: progress)
+                    .animation(.easeInOut, value: vm.progress)
 
-                Text(formatTime(seconds: timeRemaining))
+                Text(formatTime(seconds: vm.timeRemaining))
                     .font(.largeTitle)
                     .bold()
             }
@@ -53,15 +56,14 @@ struct TimerView: View {
             .padding(.bottom, 40)
 
             HStack{
-                IconButton(symbolName: "play.fill", isPressed: playPressed){
-                    playPressed.toggle()
-                    if pausePressed {pausePressed.toggle()}
+                IconButton(symbolName: "play.fill", isPressed: vm.playPressed){
+                    vm.playTimer()
                 }
-                IconButton(symbolName: "pause.fill", isPressed: pausePressed){
-                    pausePressed.toggle()
-                    if playPressed {playPressed.toggle()}
+                IconButton(symbolName: "pause.fill", isPressed: vm.pausePressed){
+                    vm.pauseTimer()
                 }
-                IconButton(symbolName: "arrow.counterclockwise", isPressed: false){
+                IconButton(symbolName: "arrow.counterclockwise", isPressed: vm.resetPressed){
+                    vm.resetTimer()
                 }
             }
         }
@@ -75,5 +77,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView()
+    TimerView(vm: TimerViewModel(length: 30))
 }
