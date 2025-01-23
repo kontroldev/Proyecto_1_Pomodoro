@@ -11,7 +11,7 @@ import SwiftUI
 struct Proyecto_1_PomodoroApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimerView(vm: TimerViewModel(length: 15, breakLength: 15))
         }
     }
 }

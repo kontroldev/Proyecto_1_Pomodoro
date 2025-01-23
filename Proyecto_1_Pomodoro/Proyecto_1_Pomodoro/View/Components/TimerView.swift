@@ -110,10 +110,11 @@ struct TimerView: View {
 }
 
 #Preview {
-
+    
     TimerView(vm: TimerViewModel(length: 5, breakLength: 5)) // 25 minutos de trabajo, 5 de descanso
+    
+    
+    //  TimerView(vm: TimerViewModel(length: 30))
+    
+}
 
-
-  //  TimerView(vm: TimerViewModel(length: 30))
-
- 

@@ -31,7 +31,7 @@ class DatabaseService {
     
     // MARK: - Habit Methods
     func createHabit(name: String, startedAt: Date, dedicatedTimeInSeconds: Int) -> HabitModel {
-        let habit = HabitModel(name: name, startedAt: startedAt, dedicatedTimeInSeconds: dedicatedTimeInSeconds, tasks: [TaskModel](), isFavorite: false)
+        let habit = HabitModel(name: name, startedAt: startedAt, dedicatedTimeInSeconds: dedicatedTimeInSeconds, isFavorite: false, tasks: [TaskModel]())
         container.mainContext.insert(habit)
         saveContext()
         
