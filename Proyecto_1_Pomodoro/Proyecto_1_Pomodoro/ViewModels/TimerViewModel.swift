@@ -10,6 +10,7 @@ import SwiftUI
 @Observable
 final class TimerViewModel: @unchecked Sendable {
 
+
     
 /*    var length: Int
     
@@ -17,6 +18,7 @@ final class TimerViewModel: @unchecked Sendable {
         self.length = length
 
 */
+
     var length: Int
     var breakLength: Int
     var isBreak = false
@@ -41,6 +43,7 @@ final class TimerViewModel: @unchecked Sendable {
         CGFloat(length - timeRemaining) / CGFloat(length)
     }*/
     
+
 
 
     var timeRemaining: Int {
@@ -85,12 +88,14 @@ final class TimerViewModel: @unchecked Sendable {
                     timeElapsed += 1
                 } else {
 
+
                    /* pauseTimer()
                 }
             }
         }
     }*/
     
+
 
                     switchTimerMode()
                 }
@@ -103,10 +108,12 @@ final class TimerViewModel: @unchecked Sendable {
         isTimerRunning = false
         timer?.invalidate()
     }
+
     
   /*  func resetTimer() {
         timeElapsed = 0
         isTimerRunning = false*/
+
 
 
     func resetTimer() {

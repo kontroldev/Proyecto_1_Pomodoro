@@ -29,6 +29,10 @@ struct IconButton: View {
 
 struct TimerView: View {
 
+    @State private var progress: CGFloat = 1.0
+    @State private var playPressed = false
+    @State private var pausePressed = false
+
 
     /*@State private var progress: CGFloat = 1.0  // Progreso inicial
     @State private var timeRemaining: Int = 60  // Tiempo restante
@@ -36,10 +40,7 @@ struct TimerView: View {
     @State private var pausePressed = false // Botón presionado
     let totalTime: Int = 60  // Tiempo total del temporizador*/
 
-    @State private var progress: CGFloat = 1.0
-    @State private var playPressed = false
-    @State private var pausePressed = false
-
+  
     
     let vm: TimerViewModel
 
@@ -57,9 +58,13 @@ struct TimerView: View {
                 Circle()
                     .trim(from: 0.0, to: vm.progress)
 
+                    .stroke(vm.isBreak ? Color.blue : Color.red, style: StrokeStyle(lineWidth: 20, lineCap: .round))
+
+
                //     .stroke(Color(#colorLiteral(red: 0.6215203404, green: 0.002358516213, blue: 0.002240711823, alpha: 1)), style: StrokeStyle(lineWidth: 20, lineCap: .round))
 
-                    .stroke(vm.isBreak ? Color.blue : Color.red, style: StrokeStyle(lineWidth: 20, lineCap: .round))
+                   
+
 
                     .rotationEffect(.degrees(-90))
                     .animation(.easeInOut, value: vm.progress)
@@ -72,15 +77,6 @@ struct TimerView: View {
             .padding(.bottom, 40)
 
 
-     /*       HStack{
-                IconButton(symbolName: "play.fill", isPressed: vm.playPressed){
-                    vm.playTimer()
-                }
-                IconButton(symbolName: "pause.fill", isPressed: vm.pausePressed){
-                    vm.pauseTimer()
-                }
-                IconButton(symbolName: "arrow.counterclockwise", isPressed: vm.resetPressed){*/
-
             HStack {
                 IconButton(symbolName: "play.fill", isPressed: vm.isTimerRunning) {
                     vm.playTimer()
@@ -89,6 +85,16 @@ struct TimerView: View {
                     vm.pauseTimer()
                 }
                 IconButton(symbolName: "arrow.counterclockwise", isPressed: vm.resetPressed) {
+
+
+     /*       HStack{
+                IconButton(symbolName: "play.fill", isPressed: vm.playPressed){
+                    vm.playTimer()
+                }
+                IconButton(symbolName: "pause.fill", isPressed: vm.pausePressed){
+                    vm.pauseTimer()
+                }
+                IconButton(symbolName: "arrow.counterclockwise", isPressed: vm.resetPressed){*/
 
                     vm.resetTimer()
                 }
@@ -105,8 +111,9 @@ struct TimerView: View {
 
 #Preview {
 
-  //  TimerView(vm: TimerViewModel(length: 30))
-
     TimerView(vm: TimerViewModel(length: 5, breakLength: 5)) // 25 minutos de trabajo, 5 de descanso
 
-}
+
+  //  TimerView(vm: TimerViewModel(length: 30))
+
+ 
