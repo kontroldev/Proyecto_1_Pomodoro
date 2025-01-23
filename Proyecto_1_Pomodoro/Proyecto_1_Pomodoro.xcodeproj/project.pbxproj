@@ -27,6 +27,7 @@
 		B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BCF2D3BC28400E95BF8 /* NombreSesionView.swift */; };
 		B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */; };
 		B3031BEA2D3BC42300E95BF8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031BE92D3BC42300E95BF8 /* Main.swift */; };
+		B3196E8D2D42D53B002D0AAA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3196E8C2D42D53B002D0AAA /* TimerViewModel.swift */; };
 		C2A07ED12D3E8FEF00B1298F /* ItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A07ED02D3E8FE800B1298F /* ItemMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		B3031BD42D3BC28400E95BF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3031BD52D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_1_PomodoroApp.swift; sourceTree = "<group>"; };
 		B3031BE92D3BC42300E95BF8 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		B3196E8C2D42D53B002D0AAA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		B3213EC52D2A9CCE00D33653 /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A07ED02D3E8FE800B1298F /* ItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 		B3031BD32D3BC28400E95BF8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B3196E8C2D42D53B002D0AAA /* TimerViewModel.swift */,
 				B3031BD22D3BC28400E95BF8 /* VieWModel.txt */,
 			);
 			path = ViewModels;
@@ -254,6 +257,7 @@
 				B3031BE42D3BC28400E95BF8 /* TimerView.swift in Sources */,
 				B3031BE52D3BC28400E95BF8 /* ContentView.swift in Sources */,
 				5AE0478D2D41F0BD00E96EF7 /* DatabaseService.swift in Sources */,
+				B3196E8D2D42D53B002D0AAA /* TimerViewModel.swift in Sources */,
 				B3031BE62D3BC28400E95BF8 /* DescripcionSesionView.swift in Sources */,
 				C2A07ED12D3E8FEF00B1298F /* ItemMenu.swift in Sources */,
 				B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */,
