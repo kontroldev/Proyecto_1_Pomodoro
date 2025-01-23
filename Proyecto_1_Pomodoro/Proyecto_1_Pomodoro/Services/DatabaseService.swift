@@ -31,7 +31,7 @@ class DatabaseService {
     
     // MARK: - Habit Methods
     func createHabit(name: String, startedAt: Date, dedicatedTimeInSeconds: Int) -> HabitModel {
-        let habit = HabitModel(name: name, startedAt: startedAt, dedicatedTimeInSeconds: dedicatedTimeInSeconds, tasks: [TaskModel]())
+        let habit = HabitModel(name: name, startedAt: startedAt, dedicatedTimeInSeconds: dedicatedTimeInSeconds, tasks: [TaskModel](), isFavorite: false)
         container.mainContext.insert(habit)
         saveContext()
         
@@ -49,7 +49,7 @@ class DatabaseService {
         }
     }
 
-    func updateHabit(habit: HabitModel, name: String? = nil, dedicatedTimeInSeconds: Int? = nil) {
+    func updateHabit(habit: HabitModel, name: String? = nil, dedicatedTimeInSeconds: Int? = nil, isFavorite: Bool) {
         if let name = name {
             habit.name = name
         }
@@ -57,6 +57,8 @@ class DatabaseService {
         if let dedicatedTimeInSeconds = dedicatedTimeInSeconds {
             habit.dedicatedTimeInSeconds = dedicatedTimeInSeconds
         }
+        
+        habit.isFavorite = isFavorite
         
         saveContext()
     }

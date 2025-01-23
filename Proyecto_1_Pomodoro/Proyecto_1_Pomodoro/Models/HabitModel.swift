@@ -14,16 +14,18 @@ class HabitModel: Identifiable, Hashable {
     var name: String
     var startedAt: Date
     var dedicatedTimeInSeconds: Int
+    var isFavorite: Bool
     @Relationship(deleteRule: .cascade) var sessions: [PomodoroSessionModel]
     @Relationship(deleteRule: .cascade) var tasks: [TaskModel]
     
-    init(identifier: UUID = UUID(), name: String, startedAt: Date, dedicatedTimeInSeconds: Int, sessions: [PomodoroSessionModel] = [], tasks: [TaskModel]) {
+    init(identifier: UUID = UUID(), name: String, startedAt: Date, dedicatedTimeInSeconds: Int, isFavorite: Bool, sessions: [PomodoroSessionModel] = [], tasks: [TaskModel]) {
         self.identifier = identifier
         self.name = name
         self.startedAt = startedAt
         self.dedicatedTimeInSeconds = dedicatedTimeInSeconds
         self.sessions = sessions
         self.tasks = tasks
+        self.isFavorite = isFavorite
     }
 }
 
