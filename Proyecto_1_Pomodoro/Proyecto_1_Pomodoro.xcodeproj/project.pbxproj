@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AE0478B2D41F0B500E96EF7 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0478A2D41F0B500E96EF7 /* HabitModel.swift */; };
+		5AE0478D2D41F0BD00E96EF7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0478C2D41F0BD00E96EF7 /* DatabaseService.swift */; };
 		B3031BD72D3BC28400E95BF8 /* Modelos.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BBE2D3BC28400E95BF8 /* Modelos.txt */; };
 		B3031BD82D3BC28400E95BF8 /* Lista de participantes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC12D3BC28400E95BF8 /* Lista de participantes.txt */; };
 		B3031BD92D3BC28400E95BF8 /* PreVieW.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3031BC22D3BC28400E95BF8 /* PreVieW.txt */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AE0478A2D41F0B500E96EF7 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
+		5AE0478C2D41F0BD00E96EF7 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B3031BBE2D3BC28400E95BF8 /* Modelos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modelos.txt; sourceTree = "<group>"; };
 		B3031BBF2D3BC28400E95BF8 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		B3031BC12D3BC28400E95BF8 /* Lista de participantes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Lista de participantes.txt"; sourceTree = "<group>"; };
@@ -60,11 +64,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AE0478E2D41F0C600E96EF7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5AE0478C2D41F0BD00E96EF7 /* DatabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B3031BC02D3BC28400E95BF8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B3031BBE2D3BC28400E95BF8 /* Modelos.txt */,
 				B3031BBF2D3BC28400E95BF8 /* TabItem.swift */,
+				5AE0478A2D41F0B500E96EF7 /* HabitModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +135,7 @@
 		B3031BD62D3BC28400E95BF8 /* Proyecto_1_Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				5AE0478E2D41F0C600E96EF7 /* Services */,
 				B3031BC02D3BC28400E95BF8 /* Models */,
 				B3031BD12D3BC28400E95BF8 /* View */,
 				B3031BD32D3BC28400E95BF8 /* ViewModels */,
@@ -227,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE0478B2D41F0B500E96EF7 /* HabitModel.swift in Sources */,
 				B3031BDF2D3BC28400E95BF8 /* TabItem.swift in Sources */,
 				B3031BE02D3BC28400E95BF8 /* ViewMockHome.swift in Sources */,
 				B3031BEA2D3BC42300E95BF8 /* Main.swift in Sources */,
@@ -235,6 +250,7 @@
 				B3031BE32D3BC28400E95BF8 /* StartSessionButtonView.swift in Sources */,
 				B3031BE42D3BC28400E95BF8 /* TimerView.swift in Sources */,
 				B3031BE52D3BC28400E95BF8 /* ContentView.swift in Sources */,
+				5AE0478D2D41F0BD00E96EF7 /* DatabaseService.swift in Sources */,
 				B3031BE62D3BC28400E95BF8 /* DescripcionSesionView.swift in Sources */,
 				B3031BE72D3BC28400E95BF8 /* NombreSesionView.swift in Sources */,
 				B3031BE82D3BC28400E95BF8 /* Proyecto_1_PomodoroApp.swift in Sources */,
