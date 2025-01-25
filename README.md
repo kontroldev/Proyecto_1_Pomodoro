@@ -50,6 +50,7 @@ Este proyecto está licenciado bajo la [MIT License](LICENSE).
   - [Alejosor](https://github.com/Alejosor)  
   - [Larafuzas](https://github.com/JuitoMG)  
   - [ManuelCBR](https://github.com/ManuelCBR)  
+  - [Matías Álvarez](https://github.com/MGAlvarez1989)
 
 ## 🎨 Diseño del Proyecto
 - **Diseñadores**:
@@ -58,6 +59,18 @@ Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
 Puedes consultar el diseño preliminar del proyecto en Figma:  
 [Diseño en Figma](https://www.figma.com/design/GdZmsgDPXeJGc9zLgesPaD/App-Habitos?node-id=15-43&p=f&t=Q08Jbj7W5ixDp4Qq-0)
+
+## 🗓️ Historial de Sprints
+
+### Sprint 1
+- **Descripción**: Implementación inicial del proyecto y estructura base.  
+- **Responsable(s)**: [kontroldev](https://github.com/kontrolDev)  
+- **Pull Request**: [#55](https://github.com/kontroldev/Proyecto_1_Pomodoro/pull/55)  
+
+### Sprint 2
+- **Descripción**: Desarrollo de funcionalidades adicionales y ajustes en la base de datos.  
+- **Responsable(s)**: [kontroldev](https://github.com/kontrolDev)  
+- **Pull Request**: [#74](https://github.com/kontroldev/Proyecto_1_Pomodoro/pull/74)  
 
 ## 🎯 Próximos Pasos
 1. Completar el diseño en Figma.
