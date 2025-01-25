@@ -73,9 +73,8 @@ Puedes consultar el diseño preliminar del proyecto en Figma:
 - **Pull Request**: [#74](https://github.com/kontroldev/Proyecto_1_Pomodoro/pull/74)  
 
 ## 🎯 Próximos Pasos
-1. Completar el diseño en Figma.
-2. Dividir el backlog en tareas concretas.
-3. Comenzar con el segundo sprint.
+1. Comenzar con el tercer sprint.
+2. Próximo sprint: resolver bugs sin añadir más funcionalidades.
 
 ---
 
