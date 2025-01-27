@@ -128,4 +128,6 @@ final class TimerViewModel: @unchecked Sendable {
         isBreak.toggle() // Cambia entre trabajo y descanso
 
     }
+    
+    
 }

@@ -33,13 +33,14 @@ struct MainView: View {
                         print("Botón Ocio presionado")
                     })
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, -10)
                 
                 
                 // Los tres botones del medio
                 // Para cambiar el destino de los botones: Moldels -> ItemMenu
                 
                 ScrollView{
+                    ChartComponetView()
                     ForEach(menuItem){buttonItems in
                         NavigationLink(destination: buttonItems.mainButtonlink){
                             HStack{
@@ -60,7 +61,9 @@ struct MainView: View {
                             .foregroundColor(Color.white)
                             .padding(8)
                         }
+                        
                     }
+                    
                 }
                 
                 Spacer()
