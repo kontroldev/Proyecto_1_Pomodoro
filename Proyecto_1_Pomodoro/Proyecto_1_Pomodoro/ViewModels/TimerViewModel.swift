@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityKit
 
 @Observable
 final class TimerViewModel: @unchecked Sendable {
@@ -47,7 +48,7 @@ final class TimerViewModel: @unchecked Sendable {
 
 
     var timeRemaining: Int {
-        (isBreak ? breakLength : length) - timeElapsed
+        max(0, (isBreak ? breakLength : length) - timeElapsed) //Modificado por @ManuelCBR para que timeElapsed no sigua incrementándose después de haber alcanzado el límite de tiempo
     }
 
     var progress: CGFloat {
@@ -86,18 +87,18 @@ final class TimerViewModel: @unchecked Sendable {
             Task { @MainActor in
                 if timeRemaining > 0 {
                     timeElapsed += 1
+                    updateLiveActivity() //Actualiza la isla dinámica
                 } else {
-
+                    
 
                    /* pauseTimer()
                 }
             }
         }
     }*/
-    
-
-
                     switchTimerMode()
+                    self.updateLiveActivity() //Actualiza la isla dinámica
+                    
                 }
             }
         }
@@ -128,4 +129,50 @@ final class TimerViewModel: @unchecked Sendable {
         isBreak.toggle() // Cambia entre trabajo y descanso
 
     }
+
+    //Para la isla dinámica ----------------------------
+    func updateLiveActivity() {
+            guard let activity = Activity<PomodoroActivityWidgetAttributes>.activities.first else {
+                print("No hay una Live Activity activa.")
+                return
+            }
+
+            let contentState = PomodoroActivityWidgetAttributes.ContentState(
+                timeRemaining: timeRemaining,
+                isBreak: isBreak,
+                progress: progress
+            )
+
+            Task {
+                await activity.update(using: contentState)
+            }
+        print("Live Activity actualizada: \(contentState.timeRemaining) segundos restantes.")
+        }
+
+        func startLiveActivity() {
+            guard ActivityAuthorizationInfo().areActivitiesEnabled else {
+                print("Live Activities no están habilitadas en este dispositivo.")
+                return
+            }
+
+            let attributes = PomodoroActivityWidgetAttributes(name: "Pomodoro Timer")
+            let initialContentState = PomodoroActivityWidgetAttributes.ContentState(
+                timeRemaining: timeRemaining,
+                isBreak: isBreak,
+                progress: progress
+            )
+
+            do {
+                _ = try Activity.request(
+                    attributes: attributes,
+                    contentState: initialContentState,
+                    pushType: nil
+                )
+                print("Live Activity iniciada.")
+            } catch {
+                print("Error al iniciar Live Activity: \(error)")
+            }
+        }
+    //------------------------------------------------------------
+    
 }
