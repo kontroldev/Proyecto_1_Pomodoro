@@ -80,6 +80,7 @@ struct TimerView: View {
             HStack {
                 IconButton(symbolName: "play.fill", isPressed: vm.isTimerRunning) {
                     vm.playTimer()
+                    vm.startLiveActivity()
                 }
                 IconButton(symbolName: "pause.fill", isPressed: !vm.isTimerRunning) {
                     vm.pauseTimer()
@@ -107,6 +108,7 @@ struct TimerView: View {
         let remainingSeconds = seconds % 60
         return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
+    
 }
 
 #Preview {
