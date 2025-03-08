@@ -11,7 +11,7 @@ import SwiftUI
 struct Proyecto_1_PomodoroApp: App {
     var body: some Scene {
         WindowGroup {
-            ViewMockHome() // Debe ser esta vista
+            ViewMockHome()
         }
     }
 }

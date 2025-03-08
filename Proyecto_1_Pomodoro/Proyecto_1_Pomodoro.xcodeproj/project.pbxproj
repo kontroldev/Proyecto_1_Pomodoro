@@ -23,6 +23,7 @@
 			membershipExceptions = (
 				ContentView.swift,
 				DescripcionSesionView.swift,
+				PomodoroTimerView.swift,
 				TimerView.swift,
 				ViewMockHome.swift,
 			);
