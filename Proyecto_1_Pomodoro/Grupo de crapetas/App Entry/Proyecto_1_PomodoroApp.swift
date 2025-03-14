@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Proyecto_1_PomodoroApp: App {
+    @State private var modelContainer = try! ModelContainer(for: PomodoroSessionModel.self)
+
     var body: some Scene {
         WindowGroup {
             ViewMockHome()
+                .environment(\.modelContext, modelContainer.mainContext)
         }
     }
 }

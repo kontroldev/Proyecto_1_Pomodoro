@@ -32,7 +32,15 @@
 		B3A533162D7C620B0078721E /* Exceptions for "ViewModel" folder in "Proyecto_1_Pomodoro" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				StaticsViewModel.swift,
 				TimerViewModel.swift,
+			);
+			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
+		};
+		B3A533A42D7D062C0078721E /* Exceptions for "Models" folder in "Proyecto_1_Pomodoro" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PomodoroSession.swift,
 			);
 			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
 		};
@@ -57,11 +65,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		B3A533062D7C5CDF0078721E /* Models */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Models;
-			sourceTree = "<group>";
-		};
 		B3A533072D7C5CE80078721E /* ViewModel */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -81,6 +84,14 @@
 				B3A5330A2D7C5DE20078721E /* Exceptions for "App Entry" folder in "Proyecto_1_Pomodoro" target */,
 			);
 			path = "App Entry";
+			sourceTree = "<group>";
+		};
+		B3A533A02D7D05FC0078721E /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B3A533A42D7D062C0078721E /* Exceptions for "Models" folder in "Proyecto_1_Pomodoro" target */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -118,7 +129,7 @@
 			children = (
 				B3A533042D7C5CAF0078721E /* Views */,
 				B3A533052D7C5CC40078721E /* Components */,
-				B3A533062D7C5CDF0078721E /* Models */,
+				B3A533A02D7D05FC0078721E /* Models */,
 				B3A533072D7C5CE80078721E /* ViewModel */,
 				B3A533082D7C5CF40078721E /* Service */,
 				B3A533092D7C5CFE0078721E /* App Entry */,

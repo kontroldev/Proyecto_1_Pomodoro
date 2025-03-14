@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Charts
+
 
 struct ViewMockHome: View {
     @State private var selectedTime: Int? = nil
-    @State private var showSessionTypeSelection = false
     @State private var customTime: String = ""
 
     var body: some View {
@@ -21,21 +22,21 @@ struct ViewMockHome: View {
 
                 // Botones para seleccionar el tiempo
                 HStack {
-                    ForEach([25, 30, 35], id: \.self) { time in
+                    ForEach([25, 30, 40], id: \.self) { time in
                         Button(action: {
                             selectedTime = time * 60
                             customTime = ""
                         }) {
                             Text("\(time) min")
                                 .padding()
-                                .frame(width: 80)
+                                .frame(width: 100)
                                 .background(selectedTime == time * 60 ? Color.blue : Color.gray)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
                     }
                 }
-                .padding(.bottom, 2) // Reducción de la separación
+                .padding(.bottom, 0) // Reducción de la separación
 
                 // Campo de selección para tiempo personalizado (en vez de TextField)
                 Picker("Tiempo personalizado", selection: $selectedTime) {
@@ -47,11 +48,9 @@ struct ViewMockHome: View {
                 .frame(height: 100)
 
                 // Botón para iniciar Pomodoro
-                Button(action: {
-                    if selectedTime != nil || (Int(customTime) ?? 0) > 0 {
-                        showSessionTypeSelection = true
-                    }
-                }) {
+                NavigationLink(
+                    destination: PomodoroTimerView(selectedTime: selectedTime ?? ((Int(customTime) ?? 0) * 60))
+                ) {
                     Text("Empezar Pomodoro")
                         .padding()
                         .frame(width: 180)
@@ -88,18 +87,13 @@ struct ViewMockHome: View {
                         .font(.headline)
                         .padding(.top, 5)
 
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                        .frame(width: 250, height: 150)
-                        .cornerRadius(10)
+                    ChartsComponentView()
                 }
                 .padding()
             }
             .navigationTitle("Inicio")
         }
-        .sheet(isPresented: $showSessionTypeSelection) {
-            SessionTypeSelectionView(selectedTime: $selectedTime)
-        }
+        
     }
 }
 
@@ -142,6 +136,64 @@ struct SessionTypeSelectionView: View {
     }
 }
 
+struct PomodoroSession: Identifiable {
+    var id = UUID()
+    var day: String
+    var type: String // "Normal", "Hábito", "Tarea"
+    var count: Int
+}
+
+struct ChartsComponentView: View {
+    @State private var pomodoroData: [PomodoroSession] = [
+        PomodoroSession(day: "Lunes", type: "Normal", count: 5),
+        PomodoroSession(day: "Lunes", type: "Hábito", count: 1),
+        PomodoroSession(day: "Lunes", type: "Tarea", count: 2),
+        PomodoroSession(day: "Martes", type: "Normal", count: 3),
+        PomodoroSession(day: "Martes", type: "Hábito", count: 2),
+        PomodoroSession(day: "Martes", type: "Tarea", count: 1),
+        PomodoroSession(day: "Miércoles", type: "Normal", count: 4),
+        PomodoroSession(day: "Miércoles", type: "Hábito", count: 1),
+        PomodoroSession(day: "Miércoles", type: "Tarea", count: 3)
+    ]
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Gráfico de Avances")
+                .font(.headline)
+                .bold()
+                .padding()
+
+            Chart {
+                ForEach(pomodoroData) { session in
+                    BarMark(
+                        x: .value("Día", session.day),
+                        y: .value("Cantidad", session.count)
+                    )
+                    .foregroundStyle(
+                        session.type == "Normal" ? Color.red :
+                        session.type == "Hábito" ? Color.green : Color.blue
+                    )
+                    .annotation(position: .overlay) {
+                        Text("\(session.count)")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+            .frame(height: 200)
+            .padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+        }
+        .padding()
+    }
+}
+
 #Preview {
     ViewMockHome()
+}
+
+#Preview {
+    ChartsComponentView()
 }

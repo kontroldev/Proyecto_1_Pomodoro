@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct PomodoroTimerView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var timeRemaining: Int
     @State private var isRunning: Bool = false
     @State private var timer: Timer? = nil
 
-    let totalTime: Int = 1500 // Duración total del Pomodoro
+    let totalTime: Int = 1500
+    let selectedTime: Int
+    let sessionType: String = "Pomodoro"
 
     init(selectedTime: Int) {
+        self.selectedTime = selectedTime
         self._timeRemaining = State(initialValue: selectedTime)
     }
 
@@ -96,10 +100,23 @@ struct PomodoroTimerView: View {
         timer?.invalidate()
     }
 
+    // Reinicia el temporizador
     func resetTimer() {
+        // Paramos el temporizador si está en marcha
         isRunning = false
         timer?.invalidate()
-        timeRemaining = totalTime
+
+        // Creamos una nueva sesión Pomodoro con la duración y tipo actual
+        let session = PomodoroSessionModel(date: Date(), duration: selectedTime, type: sessionType)
+        
+        // Insertamos la sesión en el contexto de SwiftData
+        modelContext.insert(session)
+        
+        // Intentamos guardar los cambios en el modelo de datos
+        try? modelContext.save()
+        
+        // Volvemos a establecer el tiempo restante al tiempo inicial seleccionado
+        timeRemaining = selectedTime
     }
 
     func timeString(from seconds: Int) -> String {
@@ -107,8 +124,4 @@ struct PomodoroTimerView: View {
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
-}
-
-#Preview {
-    PomodoroTimerView(selectedTime: 1500)
 }
