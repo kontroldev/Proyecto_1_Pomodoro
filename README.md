@@ -46,17 +46,14 @@ Este proyecto está acompañado por dos desarrollos paralelos que comparten la m
 - [Proyecto Web](https://github.com/ProyectosWebComunidadMoureDev/PomodoroWeb/tree/main)  
 
 ---
-
 ## 🖼️ Imágenes del Proyecto
 
 A continuación se muestran algunas capturas del desarrollo de la aplicación:
 
-![Captura 1](images/captura1.png)  
-*Descripción de la imagen 1*
+### 📱 Pantalla de Inicio  
+![Pantalla de Inicio - Simulator Screenshot - iPhone 16 Pro Max](https://github.com/user-attachments/assets/1f8339aa-f988-4a5c-ae96-7673245b6cc5)
 
-![Captura 2](images/captura2.png)  
-*Descripción de la imagen 2*
-
----
+### ⏱️ Pantalla del Temporizador  
+![Pantalla del Temporizador - Simulator Screenshot - iPhone 16 Pro Max](https://github.com/user-attachments/assets/0726818c-a1a1-41be-a071-87c559c225a5)
 
 ¡Gracias por contribuir y formar parte de este proyecto! 💪
