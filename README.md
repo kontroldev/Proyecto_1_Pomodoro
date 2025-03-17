@@ -49,11 +49,8 @@ Este proyecto está acompañado por dos desarrollos paralelos que comparten la m
 ## 🖼️ Imágenes del Proyecto
 
 A continuación se muestran algunas capturas del desarrollo de la aplicación:
-
-### 📱 Pantalla de Inicio  
-![Pantalla de Inicio - Simulator Screenshot - iPhone 16 Pro Max](https://github.com/user-attachments/assets/1f8339aa-f988-4a5c-ae96-7673245b6cc5)
-
-### ⏱️ Pantalla del Temporizador  
-![Pantalla del Temporizador - Simulator Screenshot - iPhone 16 Pro Max](https://github.com/user-attachments/assets/0726818c-a1a1-41be-a071-87c559c225a5)
+ 
+<img width="300"  alt="login" src="https://github.com/user-attachments/assets/1f8339aa-f988-4a5c-ae96-7673245b6cc5" />   
+<img width="300"  alt="Pantalla temporizador" src="https://github.com/user-attachments/assets/0726818c-a1a1-41be-a071-87c559c225a5" />
 
 ¡Gracias por contribuir y formar parte de este proyecto! 💪
