@@ -1,15 +1,16 @@
 //
-//  StaticsViewModel.swift
+//  StatisticsViewModel.swift
 //  Proyecto_1_Pomodoro
 //
-//  Created by Raúl Gallego Alonso on 9/3/25.
+//  Created by Raul Gallego Alonso on 9/3/25.
 //
 
 import Foundation
 import SwiftData
 
-class StatisticsViewModel: ObservableObject {
-    @Published var sessions: [PomodoroSessionModel] = []
+final class StatisticsViewModel: ObservableObject {
+    @Published private(set) var sessions: [PomodoroSessionModel] = []
+
     private let modelContext: ModelContext
 
     init(modelContext: ModelContext) {
@@ -31,7 +32,7 @@ class StatisticsViewModel: ObservableObject {
     }
 
     var habitsTime: Int {
-        sessions.filter { $0.type == "Hábito" }.reduce(0) { $0 + $1.duration }
+        sessions.filter { $0.type == "Habito" }.reduce(0) { $0 + $1.duration }
     }
 
     var tasksTime: Int {

@@ -10,88 +10,10 @@
 		B3A532F22D7C59A60078721E /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B3A5330A2D7C5DE20078721E /* Exceptions for "App Entry" folder in "Proyecto_1_Pomodoro" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Proyecto_1_PomodoroApp.swift,
-			);
-			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
-		};
-		B3A5330E2D7C5EE80078721E /* Exceptions for "Views" folder in "Proyecto_1_Pomodoro" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ContentView.swift,
-				DescripcionSesionView.swift,
-				PomodoroTimerView.swift,
-				TimerView.swift,
-				ViewMockHome.swift,
-			);
-			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
-		};
-		B3A533162D7C620B0078721E /* Exceptions for "ViewModel" folder in "Proyecto_1_Pomodoro" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				StaticsViewModel.swift,
-				TimerViewModel.swift,
-			);
-			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
-		};
-		B3A533A42D7D062C0078721E /* Exceptions for "Models" folder in "Proyecto_1_Pomodoro" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				PomodoroSession.swift,
-			);
-			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B3A532F42D7C59A60078721E /* Proyecto_1_Pomodoro */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Proyecto_1_Pomodoro;
-			sourceTree = "<group>";
-		};
-		B3A533042D7C5CAF0078721E /* Views */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B3A5330E2D7C5EE80078721E /* Exceptions for "Views" folder in "Proyecto_1_Pomodoro" target */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B3A533052D7C5CC40078721E /* Components */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Components;
-			sourceTree = "<group>";
-		};
-		B3A533072D7C5CE80078721E /* ViewModel */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B3A533162D7C620B0078721E /* Exceptions for "ViewModel" folder in "Proyecto_1_Pomodoro" target */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B3A533082D7C5CF40078721E /* Service */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Service;
-			sourceTree = "<group>";
-		};
-		B3A533092D7C5CFE0078721E /* App Entry */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B3A5330A2D7C5DE20078721E /* Exceptions for "App Entry" folder in "Proyecto_1_Pomodoro" target */,
-			);
-			path = "App Entry";
-			sourceTree = "<group>";
-		};
-		B3A533A02D7D05FC0078721E /* Models */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B3A533A42D7D062C0078721E /* Exceptions for "Models" folder in "Proyecto_1_Pomodoro" target */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -110,7 +32,6 @@
 		B3A532E92D7C59A60078721E = {
 			isa = PBXGroup;
 			children = (
-				B3A533032D7C5C6C0078721E /* Grupo de crapetas */,
 				B3A532F42D7C59A60078721E /* Proyecto_1_Pomodoro */,
 				B3A532F32D7C59A60078721E /* Products */,
 			);
@@ -122,19 +43,6 @@
 				B3A532F22D7C59A60078721E /* Proyecto_1_Pomodoro.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B3A533032D7C5C6C0078721E /* Grupo de crapetas */ = {
-			isa = PBXGroup;
-			children = (
-				B3A533042D7C5CAF0078721E /* Views */,
-				B3A533052D7C5CC40078721E /* Components */,
-				B3A533A02D7D05FC0078721E /* Models */,
-				B3A533072D7C5CE80078721E /* ViewModel */,
-				B3A533082D7C5CF40078721E /* Service */,
-				B3A533092D7C5CFE0078721E /* App Entry */,
-			);
-			path = "Grupo de crapetas";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
