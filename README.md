@@ -46,6 +46,7 @@ Este proyecto está acompañado por dos desarrollos paralelos que comparten la m
 - [Proyecto Web](https://github.com/ProyectosWebComunidadMoureDev/PomodoroWeb/tree/main)  
 
 ---
+<<<<<<< HEAD
 
 ## 🖼️ Imágenes del Proyecto
 
@@ -60,3 +61,13 @@ A continuación se muestran algunas capturas del desarrollo de la aplicación:
 ---
 
 ¡Gracias por contribuir y formar parte de este proyecto! 💪
+=======
+## 🖼️ Imágenes del Proyecto
+
+A continuación se muestran algunas capturas del desarrollo de la aplicación:
+ 
+<img width="300"  alt="login" src="https://github.com/user-attachments/assets/1f8339aa-f988-4a5c-ae96-7673245b6cc5" />   
+<img width="300"  alt="Pantalla temporizador" src="https://github.com/user-attachments/assets/0726818c-a1a1-41be-a071-87c559c225a5" />
+
+¡Gracias por contribuir y formar parte de este proyecto! 💪
+>>>>>>> origin/main
