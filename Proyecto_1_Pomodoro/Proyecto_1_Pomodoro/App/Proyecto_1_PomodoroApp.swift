@@ -1,3 +1,5 @@
+// xcode: set sdk=iOS
+
 //
 //  Proyecto_1_PomodoroApp.swift
 //  Proyecto_1_Pomodoro

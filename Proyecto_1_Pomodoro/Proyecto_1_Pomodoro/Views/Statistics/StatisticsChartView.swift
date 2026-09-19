@@ -6,20 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 import Charts
 
 struct StatisticsChartView: View {
-    @State private var pomodoroData: [StatisticsSession] = [
-        StatisticsSession(day: "Lunes", type: "Pomodoro", count: 5),
-        StatisticsSession(day: "Lunes", type: "Habito", count: 1),
-        StatisticsSession(day: "Lunes", type: "Tarea", count: 2),
-        StatisticsSession(day: "Martes", type: "Pomodoro", count: 3),
-        StatisticsSession(day: "Martes", type: "Habito", count: 2),
-        StatisticsSession(day: "Martes", type: "Tarea", count: 1),
-        StatisticsSession(day: "Miercoles", type: "Pomodoro", count: 4),
-        StatisticsSession(day: "Miercoles", type: "Habito", count: 1),
-        StatisticsSession(day: "Miercoles", type: "Tarea", count: 3)
-    ]
+    @Query(sort: \PomodoroSessionModel.date) private var sessions: [PomodoroSessionModel]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,41 +19,60 @@ struct StatisticsChartView: View {
                 .bold()
                 .padding(.horizontal)
 
-            Chart {
-                ForEach(pomodoroData) { session in
-                    BarMark(
-                        x: .value("Dia", session.day),
-                        y: .value("Cantidad", session.count)
-                    )
-                    .foregroundStyle(color(for: session.type))
-                    .annotation(position: .overlay) {
-                        Text("\(session.count)")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                    }
-                }
-            }
-            .frame(height: 200)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
+            content
+                .frame(height: 200)
+                .padding()
+                .background(.background, in: .rect(cornerRadius: 10))
+                .shadow(radius: 5)
         }
         .padding(.vertical)
     }
 
-    private func color(for type: String) -> Color {
-        switch type {
-        case "Pomodoro":
-            return .red
-        case "Habito":
-            return .green
-        default:
-            return .blue
+    @ViewBuilder
+    private var content: some View {
+        if statistics.isEmpty {
+            ContentUnavailableView(
+                "Sin sesiones todavía",
+                systemImage: "chart.bar",
+                description: Text("Completa tu primera sesión para ver aquí tu progreso.")
+            )
+        } else {
+            Chart(statistics) { entry in
+                BarMark(
+                    x: .value("Día", entry.day, unit: .day),
+                    y: .value("Cantidad", entry.count)
+                )
+                .foregroundStyle(by: .value("Tipo", entry.type.displayName))
+                .annotation(position: .overlay) {
+                    Text("\(entry.count)")
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                }
+            }
+            .chartForegroundStyleScale([
+                SessionType.pomodoro.displayName: SessionType.pomodoro.tint,
+                SessionType.habito.displayName: SessionType.habito.tint,
+                SessionType.tarea.displayName: SessionType.tarea.tint
+            ])
         }
+    }
+
+    private var statistics: [StatisticsSession] {
+        let calendar = Calendar.current
+        let byDay = Dictionary(grouping: sessions) { calendar.startOfDay(for: $0.date) }
+
+        return byDay
+            .flatMap { day, sessionsForDay in
+                Dictionary(grouping: sessionsForDay, by: \.type)
+                    .map { type, sessionsForType in
+                        StatisticsSession(day: day, type: type, count: sessionsForType.count)
+                    }
+            }
+            .sorted { $0.day < $1.day }
     }
 }
 
 #Preview {
     StatisticsChartView()
+        .modelContainer(for: PomodoroSessionModel.self, inMemory: true)
 }

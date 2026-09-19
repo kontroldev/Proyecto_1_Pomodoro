@@ -10,13 +10,11 @@ import SwiftData
 
 @Model
 final class PomodoroSessionModel {
-    var id: UUID
     var date: Date
     var duration: Int
-    var type: String
+    var type: SessionType
 
-    init(date: Date, duration: Int, type: String) {
-        self.id = UUID()
+    init(date: Date, duration: Int, type: SessionType) {
         self.date = date
         self.duration = duration
         self.type = type

@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct StatisticsSession: Identifiable {
-    let id = UUID()
-    let day: String
-    let type: String
+struct StatisticsSession: Identifiable, Equatable {
+    let day: Date
+    let type: SessionType
     let count: Int
+
+    var id: String { "\(day.timeIntervalSinceReferenceDate)-\(type.rawValue)" }
 }

@@ -46,22 +46,7 @@ Este proyecto está acompañado por dos desarrollos paralelos que comparten la m
 - [Proyecto Web](https://github.com/ProyectosWebComunidadMoureDev/PomodoroWeb/tree/main)  
 
 ---
-<<<<<<< HEAD
 
-## 🖼️ Imágenes del Proyecto
-
-A continuación se muestran algunas capturas del desarrollo de la aplicación:
-
-![Captura 1](images/captura1.png)  
-*Descripción de la imagen 1*
-
-![Captura 2](images/captura2.png)  
-*Descripción de la imagen 2*
-
----
-
-¡Gracias por contribuir y formar parte de este proyecto! 💪
-=======
 ## 🖼️ Imágenes del Proyecto
 
 A continuación se muestran algunas capturas del desarrollo de la aplicación:
@@ -69,5 +54,11 @@ A continuación se muestran algunas capturas del desarrollo de la aplicación:
 <img width="300"  alt="login" src="https://github.com/user-attachments/assets/1f8339aa-f988-4a5c-ae96-7673245b6cc5" />   
 <img width="300"  alt="Pantalla temporizador" src="https://github.com/user-attachments/assets/0726818c-a1a1-41be-a071-87c559c225a5" />
 
+---
+
+## 📝 Registro de cambios
+
+### 2026-09-19
+- Diagnosticado el error de compilación `Cannot find 'HomeView' in scope` en `Proyecto_1_PomodoroApp.swift`. La causa era que Xcode tenía abierta la carpeta de archivos suelta en lugar del `Proyecto_1_Pomodoro.xcodeproj`, por lo que generaba un build ad-hoc de un solo archivo que no incluía `HomeView.swift`, `PomodoroSessionModel.swift` ni el resto de fuentes del target. No fue necesario modificar el código: `HomeView` y el resto de tipos ya son miembros del target a través de los grupos sincronizados con el sistema de archivos del proyecto. Solución: abrir el `.xcodeproj` directamente en Xcode.
+
 ¡Gracias por contribuir y formar parte de este proyecto! 💪
->>>>>>> origin/main

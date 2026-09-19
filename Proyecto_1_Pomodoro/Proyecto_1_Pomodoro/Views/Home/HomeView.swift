@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var selectedTime = 25 * 60
+    @State private var selectedMinutes = 25
 
-    private let defaultTimes = [25, 30, 40]
+    private let defaultMinutes = [25, 30, 40]
 
     var body: some View {
         NavigationStack {
@@ -20,53 +20,53 @@ struct HomeView: View {
                     .padding(.top)
 
                 HStack(spacing: 12) {
-                    ForEach(defaultTimes, id: \.self) { minutes in
+                    ForEach(defaultMinutes, id: \.self) { minutes in
                         Button {
-                            selectedTime = minutes * 60
+                            selectedMinutes = minutes
                         } label: {
                             Text("\(minutes) min")
                                 .frame(width: 92)
                         }
                         .buttonStyle(.borderedProminent)
-                        .tint(selectedTime == minutes * 60 ? .blue : .gray)
+                        .tint(selectedMinutes == minutes ? .blue : .gray)
                     }
                 }
 
-                Picker("Tiempo personalizado", selection: $selectedTime) {
+                Picker("Tiempo personalizado", selection: $selectedMinutes) {
                     ForEach(1...120, id: \.self) { minute in
-                        Text("\(minute) min").tag(minute * 60)
+                        Text("\(minute) min").tag(minute)
                     }
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
 
                 NavigationLink {
-                    TimerView(selectedTime: selectedTime, sessionType: "Pomodoro")
+                    TimerView(selectedTime: selectedMinutes * 60, sessionType: .pomodoro)
                 } label: {
                     Text("Empezar Pomodoro")
                         .frame(width: 180)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.red)
+                .tint(SessionType.pomodoro.tint)
 
                 HStack(spacing: 15) {
                     NavigationLink {
-                        TimerView(selectedTime: 60 * 60, sessionType: "Habito")
+                        TimerView(selectedTime: 60 * 60, sessionType: .habito)
                     } label: {
                         Text("Habitos")
                             .frame(width: 120)
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(.purple)
+                    .tint(SessionType.habito.tint)
 
                     NavigationLink {
-                        TimerView(selectedTime: 25 * 60, sessionType: "Tarea")
+                        TimerView(selectedTime: 25 * 60, sessionType: .tarea)
                     } label: {
                         Text("Tareas")
                             .frame(width: 120)
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(.green)
+                    .tint(SessionType.tarea.tint)
                 }
 
                 StatisticsChartView()
@@ -81,4 +81,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(for: PomodoroSessionModel.self, inMemory: true)
 }

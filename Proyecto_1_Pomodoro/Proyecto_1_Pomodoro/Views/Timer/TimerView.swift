@@ -10,20 +10,18 @@ import SwiftData
 
 struct TimerView: View {
     @Environment(\.modelContext) private var modelContext
-    @StateObject private var viewModel: TimerViewModel
+    @State private var viewModel: TimerViewModel
 
-    private let selectedTime: Int
-    private let sessionType: String
+    private let sessionType: SessionType
 
-    init(selectedTime: Int, sessionType: String = "Pomodoro") {
-        self.selectedTime = selectedTime
+    init(selectedTime: Int, sessionType: SessionType = .pomodoro) {
         self.sessionType = sessionType
-        _viewModel = StateObject(wrappedValue: TimerViewModel(initialTime: selectedTime))
+        _viewModel = State(initialValue: TimerViewModel(initialTime: selectedTime))
     }
 
     var body: some View {
         VStack(spacing: 24) {
-            Text("Temporizador \(sessionType)")
+            Text("Temporizador \(sessionType.displayName)")
                 .font(.largeTitle)
                 .bold()
                 .padding(.top, 40)
@@ -32,65 +30,84 @@ struct TimerView: View {
                 Circle()
                     .stroke(lineWidth: 15)
                     .opacity(0.3)
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
                     .frame(width: 220, height: 220)
 
                 Circle()
-                    .trim(from: 0.0, to: progressValue)
+                    .trim(from: 0.0, to: viewModel.progress)
                     .stroke(Color.red, style: StrokeStyle(lineWidth: 15, lineCap: .round))
                     .rotationEffect(.degrees(-90))
                     .frame(width: 220, height: 220)
                     .animation(.linear(duration: 0.5), value: viewModel.timeRemaining)
 
-                Text(formatTime(viewModel.timeRemaining))
+                Text(timeText)
                     .font(.largeTitle)
                     .bold()
+                    .monospacedDigit()
             }
 
             HStack(spacing: 16) {
                 Button("Iniciar") {
-                    viewModel.startTimer()
+                    viewModel.start()
                 }
-                .disabled(viewModel.isRunning)
+                .disabled(viewModel.isRunning || viewModel.isFinished)
                 .buttonStyle(.borderedProminent)
                 .tint(viewModel.isRunning ? .gray : .green)
 
                 Button("Pausar") {
-                    viewModel.pauseTimer()
+                    viewModel.pause()
                 }
+                .disabled(!viewModel.isRunning)
                 .buttonStyle(.borderedProminent)
                 .tint(.orange)
 
                 Button("Reiniciar") {
-                    viewModel.resetTimer()
+                    viewModel.reset()
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.red)
             }
 
             Button("Guardar sesion") {
-                viewModel.saveSession(type: sessionType)
+                viewModel.saveSession(type: sessionType, in: modelContext)
             }
+            .disabled(viewModel.didSave || viewModel.elapsedTime == 0)
             .buttonStyle(.bordered)
 
             Spacer()
         }
         .padding()
-        .navigationTitle(sessionType)
-        .onAppear {
-            viewModel.setModelContextIfNeeded(modelContext)
+        .navigationTitle(sessionType.displayName)
+        .task(id: viewModel.isRunning) {
+            guard viewModel.isRunning else { return }
+            await viewModel.runCountdown()
+            if viewModel.isFinished {
+                viewModel.saveSession(type: sessionType, in: modelContext)
+            }
+        }
+        .alert(
+            "No se pudo guardar la sesión",
+            isPresented: errorAlertBinding,
+            presenting: viewModel.saveErrorMessage
+        ) { _ in
+            Button("OK") {}
+        } message: { message in
+            Text(message)
         }
     }
 
-    private var progressValue: CGFloat {
-        guard selectedTime > 0 else { return 0 }
-        return CGFloat(viewModel.timeRemaining) / CGFloat(selectedTime)
+    private var timeText: String {
+        Duration.seconds(viewModel.timeRemaining)
+            .formatted(.time(pattern: .minuteSecond(padMinuteToLength: 2)))
     }
 
-    private func formatTime(_ seconds: Int) -> String {
-        let minutes = seconds / 60
-        let seconds = seconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+    private var errorAlertBinding: Binding<Bool> {
+        Binding(
+            get: { viewModel.saveErrorMessage != nil },
+            set: { isPresented in
+                if !isPresented { viewModel.dismissSaveError() }
+            }
+        )
     }
 }
 

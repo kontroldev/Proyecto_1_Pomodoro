@@ -6,69 +6,86 @@
 //
 
 import Foundation
+import Observation
 import SwiftData
 
-final class TimerViewModel: ObservableObject {
-    @Published var timeRemaining: Int
-    @Published var isRunning = false
+@MainActor
+@Observable
+final class TimerViewModel {
+    private(set) var timeRemaining: Int
+    private(set) var isRunning = false
+    private(set) var didSave = false
+    private(set) var saveErrorMessage: String?
 
     let initialTime: Int
-
-    private var timer: Timer?
-    private var modelContext: ModelContext?
 
     init(initialTime: Int = 1500) {
         self.initialTime = initialTime
         self.timeRemaining = initialTime
     }
 
-    func setModelContextIfNeeded(_ context: ModelContext) {
-        guard modelContext == nil else { return }
-        modelContext = context
+    var elapsedTime: Int {
+        initialTime - timeRemaining
     }
 
-    func startTimer() {
-        guard !isRunning else { return }
+    var progress: Double {
+        guard initialTime > 0 else { return 0 }
+        return Double(timeRemaining) / Double(initialTime)
+    }
+
+    var isFinished: Bool {
+        timeRemaining <= 0
+    }
+
+    func start() {
+        guard !isRunning, !isFinished else { return }
         isRunning = true
+    }
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let self else { return }
+    func pause() {
+        isRunning = false
+    }
 
-            if timeRemaining > 0 {
-                timeRemaining -= 1
-            } else {
-                stopTimer()
+    func reset() {
+        isRunning = false
+        timeRemaining = initialTime
+        didSave = false
+        saveErrorMessage = nil
+    }
+
+    /// Cuenta atrás cooperativa: se cancela sola cuando la vista que la lanza
+    /// desde `.task(id:)` desaparece o cuando `isRunning` cambia de valor.
+    func runCountdown() async {
+        while isRunning && timeRemaining > 0 {
+            do {
+                try await Task.sleep(for: .seconds(1))
+            } catch {
+                return
             }
+            guard isRunning else { return }
+            timeRemaining -= 1
+        }
+
+        if isFinished {
+            isRunning = false
         }
     }
 
-    func pauseTimer() {
-        isRunning = false
-        timer?.invalidate()
-        timer = nil
+    func dismissSaveError() {
+        saveErrorMessage = nil
     }
 
-    func resetTimer() {
-        pauseTimer()
-        timeRemaining = initialTime
-    }
+    func saveSession(type: SessionType, in modelContext: ModelContext) {
+        guard !didSave, elapsedTime > 0 else { return }
 
-    func saveSession(type: String) {
-        guard let modelContext else { return }
-
-        let session = PomodoroSessionModel(date: Date(), duration: initialTime, type: type)
+        let session = PomodoroSessionModel(date: Date(), duration: elapsedTime, type: type)
         modelContext.insert(session)
 
         do {
             try modelContext.save()
+            didSave = true
         } catch {
-            print("Error al guardar la sesion Pomodoro: \(error.localizedDescription)")
+            saveErrorMessage = error.localizedDescription
         }
-    }
-
-    private func stopTimer() {
-        isRunning = false
-        timer?.invalidate()
-        timer = nil
     }
 }
