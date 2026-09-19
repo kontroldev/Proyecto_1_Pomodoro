@@ -4,6 +4,16 @@
 
 Proyecto colaborativo para desarrollar una aplicación de Pomodoro con métricas y estadísticas. Este proyecto es parte de la iniciativa de [MoureDev](https://github.com/mouredev) para practicar y mejorar nuestras habilidades en Swift y trabajo colaborativo.
 
+## 🔄 Evolución del proyecto
+
+La fase de colaboración de la comunidad para este proyecto ya ha finalizado. A partir de este punto, el proyecto entra en una nueva etapa centrada en su **refactorización y evolución**.
+
+El objetivo de esta nueva fase es revisar y mejorar progresivamente la arquitectura, la organización del código y la implementación de las diferentes funcionalidades, aplicando los conocimientos y criterios de programación en **Swift y SwiftUI** que voy adquiriendo durante mi formación como desarrollador iOS.
+
+Esta evolución también busca transformar el proyecto original en un proyecto más personal y representativo de mi forma de trabajar, manteniendo como base todo lo aprendido durante la etapa colaborativa.
+
+El resultado final formará parte de mi **portfolio como desarrollador iOS**, mostrando no solo una aplicación funcional, sino también la evolución del código, las decisiones técnicas tomadas y mi progreso como desarrollador.
+
 ## 🚀 Objetivo
 Crear una aplicación funcional que permita a los usuarios:
 - Gestionar su tiempo con la técnica Pomodoro.
