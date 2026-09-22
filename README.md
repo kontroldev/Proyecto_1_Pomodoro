@@ -68,6 +68,18 @@ A continuación se muestran algunas capturas del desarrollo de la aplicación:
 
 ## 📝 Registro de cambios
 
+### 2026-09-22
+Refactor del temporizador, las estadísticas y la navegación (rama `refactor/timer-enddate`).
+
+- **Temporizador que se retrasaba o se paraba en segundo plano.** `TimerViewModel` restaba 1 a `timeRemaining` tras cada `Task.sleep(for: .seconds(1))`. Cada vuelta tarda algo más de un segundo, así que el error se acumulaba, y con la app en segundo plano la tarea se suspendía y el tiempo dejaba de correr. Ahora `start()` guarda un `endDate` y `refresh()` calcula el tiempo restante como `endDate − ahora`. El bucle solo pide recalcular cada 250 ms, y la hora viene de un reloj inyectable (`now: () -> Date`) para poder probarlo en los tests.
+- **Actualizar al volver a primer plano.** `TimerView` observa `scenePhase`: al volver a `.active` recalcula al instante y, si la sesión terminó mientras estaba en segundo plano, la guarda.
+- **Estadísticas que contaban sesiones en vez de tiempo.** La gráfica mostraba cuántas sesiones había, así que una de 1 minuto pesaba lo mismo que una de 60. Ahora `StatisticsSession.daily(from:)` es una función pura que agrupa por día y tipo y suma **minutos**. Suma los segundos antes de convertir, para no perder las sesiones cortas por redondeo, y devuelve el resultado ordenado.
+- **Navegación.** `HomeView` construía los tres `TimerView` en cada render mediante `NavigationLink { destino }`. Ahora navega por valor con `TimerRoute` y `navigationDestination(for:)`. También se han quitado los anchos fijos (`.frame(width:)`) en favor de `maxWidth: .infinity`, y el contenido va en un `ScrollView` para pantallas pequeñas.
+- **`TimerView`.** El anillo usa `sessionType.tint` en lugar de rojo fijo, y el círculo se adapta al ancho disponible. El botón «Guardar sesion» pasa a ser «Terminar y guardar»: detiene el temporizador y guarda el tiempo transcurrido.
+- **Textos.** Se han corregido las tildes («Hábitos», «Gráfico de avances»). El `rawValue` `"Habito"` se mantiene sin tilde porque es el valor que ya está guardado en SwiftData. También se ha eliminado el comentario `// xcode: set sdk=iOS` de `Proyecto_1_PomodoroApp.swift`.
+- **Tests.** Nuevo target `Proyecto_1_PomodoroTests` con Swift Testing (12 tests, para `TimerViewModel` y `StatisticsSession.daily`) y scheme compartido para poder ejecutarlos con `xcodebuild test`.
+- **Nota:** `.gitignore` incluye `project.pbxproj`. El archivo ya estaba versionado, así que los cambios se siguen registrando, pero un proyecto nuevo no se subiría.
+
 ### 2026-09-19
 - Diagnosticado el error de compilación `Cannot find 'HomeView' in scope` en `Proyecto_1_PomodoroApp.swift`. La causa era que Xcode tenía abierta la carpeta de archivos suelta en lugar del `Proyecto_1_Pomodoro.xcodeproj`, por lo que generaba un build ad-hoc de un solo archivo que no incluía `HomeView.swift`, `PomodoroSessionModel.swift` ni el resto de fuentes del target. No fue necesario modificar el código: `HomeView` y el resto de tipos ya son miembros del target a través de los grupos sincronizados con el sistema de archivos del proyecto. Solución: abrir el `.xcodeproj` directamente en Xcode.
 

@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		C0FFEE00000000000000000A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3A532EA2D7C59A60078721E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3A532F12D7C59A60078721E;
+			remoteInfo = Proyecto_1_Pomodoro;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B3A532F22D7C59A60078721E /* Proyecto_1_Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proyecto_1_Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0FFEE000000000000000001 /* Proyecto_1_PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Proyecto_1_PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = Proyecto_1_Pomodoro;
 			sourceTree = "<group>";
 		};
+		C0FFEE000000000000000002 /* Proyecto_1_PomodoroTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Proyecto_1_PomodoroTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B3A532EF2D7C59A60078721E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0FFEE000000000000000003 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				B3A532F42D7C59A60078721E /* Proyecto_1_Pomodoro */,
+				C0FFEE000000000000000002 /* Proyecto_1_PomodoroTests */,
 				B3A532F32D7C59A60078721E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B3A532F22D7C59A60078721E /* Proyecto_1_Pomodoro.app */,
+				C0FFEE000000000000000001 /* Proyecto_1_PomodoroTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = B3A532F22D7C59A60078721E /* Proyecto_1_Pomodoro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C0FFEE000000000000000006 /* Proyecto_1_PomodoroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0FFEE000000000000000007 /* Build configuration list for PBXNativeTarget "Proyecto_1_PomodoroTests" */;
+			buildPhases = (
+				C0FFEE000000000000000004 /* Sources */,
+				C0FFEE000000000000000003 /* Frameworks */,
+				C0FFEE000000000000000005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0FFEE000000000000000008 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C0FFEE000000000000000002 /* Proyecto_1_PomodoroTests */,
+			);
+			name = Proyecto_1_PomodoroTests;
+			packageProductDependencies = (
+			);
+			productName = Proyecto_1_PomodoroTests;
+			productReference = C0FFEE000000000000000001 /* Proyecto_1_PomodoroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					B3A532F12D7C59A60078721E = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					C0FFEE000000000000000006 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = B3A532F12D7C59A60078721E;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */,
+				C0FFEE000000000000000006 /* Proyecto_1_PomodoroTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B3A532F02D7C59A60078721E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0FFEE000000000000000005 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0FFEE000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0FFEE000000000000000008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3A532F12D7C59A60078721E /* Proyecto_1_Pomodoro */;
+			targetProxy = C0FFEE00000000000000000A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B3A532FE2D7C59A80078721E /* Debug */ = {
@@ -302,6 +377,44 @@
 			};
 			name = Release;
 		};
+		C0FFEE000000000000000009 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TW5ALJNBYM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kontroldesingstudio.Proyecto-1-PomodoroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Proyecto_1_Pomodoro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Proyecto_1_Pomodoro";
+			};
+			name = Debug;
+		};
+		C0FFEE00000000000000000B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TW5ALJNBYM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kontroldesingstudio.Proyecto-1-PomodoroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Proyecto_1_Pomodoro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Proyecto_1_Pomodoro";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +432,15 @@
 			buildConfigurations = (
 				B3A533012D7C59A80078721E /* Debug */,
 				B3A533022D7C59A80078721E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0FFEE000000000000000007 /* Build configuration list for PBXNativeTarget "Proyecto_1_PomodoroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0FFEE000000000000000009 /* Debug */,
+				C0FFEE00000000000000000B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
