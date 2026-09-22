@@ -14,7 +14,7 @@ struct StatisticsChartView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Grafico de avances")
+            Text("Gráfico de avances")
                 .font(.headline)
                 .bold()
                 .padding(.horizontal)
@@ -40,11 +40,11 @@ struct StatisticsChartView: View {
             Chart(statistics) { entry in
                 BarMark(
                     x: .value("Día", entry.day, unit: .day),
-                    y: .value("Cantidad", entry.count)
+                    y: .value("Minutos", entry.minutes)
                 )
                 .foregroundStyle(by: .value("Tipo", entry.type.displayName))
                 .annotation(position: .overlay) {
-                    Text("\(entry.count)")
+                    Text("\(entry.minutes)")
                         .font(.caption)
                         .foregroundStyle(.white)
                 }
@@ -58,17 +58,7 @@ struct StatisticsChartView: View {
     }
 
     private var statistics: [StatisticsSession] {
-        let calendar = Calendar.current
-        let byDay = Dictionary(grouping: sessions) { calendar.startOfDay(for: $0.date) }
-
-        return byDay
-            .flatMap { day, sessionsForDay in
-                Dictionary(grouping: sessionsForDay, by: \.type)
-                    .map { type, sessionsForType in
-                        StatisticsSession(day: day, type: type, count: sessionsForType.count)
-                    }
-            }
-            .sorted { $0.day < $1.day }
+        StatisticsSession.daily(from: sessions)
     }
 }
 

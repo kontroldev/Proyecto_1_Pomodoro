@@ -6,6 +6,8 @@
 import Foundation
 
 enum SessionType: String, Codable, CaseIterable, Identifiable {
+    // Los rawValue se guardan en SwiftData: no cambiarlos (por eso "Habito"
+    // va sin tilde). El texto visible está en `displayName`.
     case pomodoro = "Pomodoro"
     case habito = "Habito"
     case tarea = "Tarea"

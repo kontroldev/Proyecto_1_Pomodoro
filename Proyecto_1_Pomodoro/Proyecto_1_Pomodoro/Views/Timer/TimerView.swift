@@ -10,6 +10,7 @@ import SwiftData
 
 struct TimerView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.scenePhase) private var scenePhase
     @State private var viewModel: TimerViewModel
 
     private let sessionType: SessionType
@@ -24,6 +25,7 @@ struct TimerView: View {
             Text("Temporizador \(sessionType.displayName)")
                 .font(.largeTitle)
                 .bold()
+                .multilineTextAlignment(.center)
                 .padding(.top, 40)
 
             ZStack {
@@ -31,13 +33,11 @@ struct TimerView: View {
                     .stroke(lineWidth: 15)
                     .opacity(0.3)
                     .foregroundStyle(.gray)
-                    .frame(width: 220, height: 220)
 
                 Circle()
                     .trim(from: 0.0, to: viewModel.progress)
-                    .stroke(Color.red, style: StrokeStyle(lineWidth: 15, lineCap: .round))
+                    .stroke(sessionType.tint, style: StrokeStyle(lineWidth: 15, lineCap: .round))
                     .rotationEffect(.degrees(-90))
-                    .frame(width: 220, height: 220)
                     .animation(.linear(duration: 0.5), value: viewModel.timeRemaining)
 
                 Text(timeText)
@@ -45,6 +45,9 @@ struct TimerView: View {
                     .bold()
                     .monospacedDigit()
             }
+            .aspectRatio(1, contentMode: .fit)
+            .frame(maxWidth: 260)
+            .padding(.horizontal, 24)
 
             HStack(spacing: 16) {
                 Button("Iniciar") {
@@ -68,11 +71,16 @@ struct TimerView: View {
                 .tint(.red)
             }
 
-            Button("Guardar sesion") {
-                viewModel.saveSession(type: sessionType, in: modelContext)
+            Button("Terminar y guardar") {
+                viewModel.finishAndSave(type: sessionType, in: modelContext)
             }
-            .disabled(viewModel.didSave || viewModel.elapsedTime == 0)
+            .disabled(viewModel.didSave || (viewModel.elapsedTime == 0 && !viewModel.isRunning))
             .buttonStyle(.bordered)
+
+            if viewModel.didSave {
+                Label("Sesión guardada", systemImage: "checkmark.circle.fill")
+                    .foregroundStyle(.secondary)
+            }
 
             Spacer()
         }
@@ -81,9 +89,14 @@ struct TimerView: View {
         .task(id: viewModel.isRunning) {
             guard viewModel.isRunning else { return }
             await viewModel.runCountdown()
-            if viewModel.isFinished {
-                viewModel.saveSession(type: sessionType, in: modelContext)
-            }
+            saveIfFinished()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            // Al volver a primer plano, recalcula enseguida con la hora real
+            // en lugar de esperar al siguiente ciclo del bucle.
+            guard newPhase == .active else { return }
+            viewModel.refresh()
+            saveIfFinished()
         }
         .alert(
             "No se pudo guardar la sesión",
@@ -93,6 +106,12 @@ struct TimerView: View {
             Button("OK") {}
         } message: { message in
             Text(message)
+        }
+    }
+
+    private func saveIfFinished() {
+        if viewModel.isFinished {
+            viewModel.saveSession(type: sessionType, in: modelContext)
         }
     }
 
